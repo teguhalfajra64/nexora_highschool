@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Form Pendaftaran | Nexora High School</title>
+
+    <meta name="theme-color" content="#343A40">
+
+    <script>
+    localStorage.getItem("nexora-theme")==="dark"&&document.documentElement.classList.add("dark");
+    </script>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+
+<body class="form-page">
+
+<div class="scroll-progress" aria-hidden="true"><div id="scrollProgress"></div></div>
+
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-icon">N</span>
+
+            <span>
+
+                <strong>NEXORA</strong>
+
+                <small>HIGH SCHOOL</small>
+
+            </span>
+
+        </a>
+
+
+        <div class="nav-actions">
+
+            <button class="theme-toggle"
+                    id="themeToggle" aria-label="Toggle dark mode">
+
+                ◐
+
+            </button>
+
+            <a href="pendaftaran.html"
+               class="back-link">
+
+                ← Kembali ke informasi
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="form-main">
+
+
+<div class="container">
+
+
+<div class="form-header reveal">
+
+    <span class="section-label">
+        PPDB 2027 / 2028
+    </span>
+
+    <h1>
+        Formulir
+        <span>Pendaftaran.</span>
+    </h1>
+
+    <p>
+        Lengkapi data berikut dengan informasi
+        yang benar dan sesuai dokumen.
+    </p>
+
+</div>
+
+
+<div class="form-notice reveal" role="alert">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    <span>
+        <strong>Simulasi Frontend</strong> — Data formulir <strong>tidak disimpan</strong> ke database. 
+        Demo ini hanya menampilkan alur wizard multi-step, validasi, dan generate nomor pendaftaran acak.
+    </span>
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="form-progress">
+
+    <div class="progress-line">
+
+        <div id="progressBar"></div>
+
+    </div>
+
+
+    <div class="progress-step active">
+
+        <span>01</span>
+
+        <small>Data Diri</small>
+
+    </div>
+
+
+    <div class="progress-step">
+
+        <span>02</span>
+
+        <small>Orang Tua</small>
+
+    </div>
+
+
+    <div class="progress-step">
+
+        <span>03</span>
+
+        <small>Sekolah</small>
+
+    </div>
+
+
+    <div class="progress-step">
+
+        <span>04</span>
+
+        <small>Dokumen</small>
+
+    </div>
+
+
+    <div class="progress-step">
+
+        <span>05</span>
+
+        <small>Selesai</small>
+
+    </div>
+
+</div>
+
+
+<!-- FORM -->
+
+<form id="registrationForm"
+      class="registration-form">
+
+
+<!-- STEP 1 -->
+
+<section class="form-step active">
+
+    <div class="form-card">
+
+        <div class="form-card-heading">
+
+            <span>01</span>
+
+            <div>
+
+                <h2>
+                    Data Calon Siswa
+                </h2>
+
+                <p>
+                    Isi informasi dasar calon siswa.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="input-group full">
+
+                <label>
+                    Nama Lengkap
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="nama"
+                    placeholder="Contoh: Muhammad Rizky"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    NISN
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="nisn"
+                    placeholder="10 digit NISN"
+                    maxlength="10"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Jenis Kelamin
+                    <span>*</span>
+                </label>
+
+                <select name="gender" required>
+
+                    <option value="">
+                        Pilih jenis kelamin
+                    </option>
+
+                    <option value="Laki-laki">
+                        Laki-laki
+                    </option>
+
+                    <option value="Perempuan">
+                        Perempuan
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Tempat Lahir
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="tempat_lahir"
+                    placeholder="Contoh: Bukittinggi"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Tanggal Lahir
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="date"
+                    name="tanggal_lahir"
+                    required>
+
+            </div>
+
+
+            <div class="input-group full">
+
+                <label>
+                    Alamat Lengkap
+                    <span>*</span>
+                </label>
+
+                <textarea
+                    name="alamat"
+                    rows="4"
+                    placeholder="Masukkan alamat lengkap..."
+                    required></textarea>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="form-navigation">
+
+        <span>
+            * Wajib diisi
+        </span>
+
+        <button type="button"
+                class="btn btn-primary next-btn">
+
+            Lanjut →
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- STEP 2 -->
+
+<section class="form-step">
+
+    <div class="form-card">
+
+        <div class="form-card-heading">
+
+            <span>02</span>
+
+            <div>
+
+                <h2>
+                    Data Orang Tua / Wali
+                </h2>
+
+                <p>
+                    Informasi orang tua atau wali calon siswa.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="input-group">
+
+                <label>
+                    Nama Ayah
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="ayah"
+                    placeholder="Nama lengkap ayah"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Nama Ibu
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="ibu"
+                    placeholder="Nama lengkap ibu"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    No. HP Orang Tua
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="08xxxxxxxxxx"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Pekerjaan Orang Tua
+                </label>
+
+                <input
+                    type="text"
+                    name="pekerjaan"
+                    placeholder="Contoh: Wiraswasta">
+
+            </div>
+
+
+            <div class="input-group full">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="nama@email.com">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="form-navigation">
+
+        <button type="button"
+                class="btn btn-secondary prev-btn">
+
+            ← Kembali
+
+        </button>
+
+        <button type="button"
+                class="btn btn-primary next-btn">
+
+            Lanjut →
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- STEP 3 -->
+
+<section class="form-step">
+
+    <div class="form-card">
+
+        <div class="form-card-heading">
+
+            <span>03</span>
+
+            <div>
+
+                <h2>
+                    Data Sekolah Asal
+                </h2>
+
+                <p>
+                    Informasi pendidikan sebelumnya.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <div class="input-group full">
+
+                <label>
+                    Nama Sekolah Asal
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="sekolah"
+                    placeholder="Contoh: SMP Negeri 1"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    NPSN
+                </label>
+
+                <input
+                    type="text"
+                    name="npsn"
+                    placeholder="NPSN sekolah">
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Tahun Lulus
+                    <span>*</span>
+                </label>
+
+                <select name="tahun" required>
+
+                    <option value="">
+                        Pilih tahun
+                    </option>
+
+                    <option value="2027">
+                        2027
+                    </option>
+
+                    <option value="2026">
+                        2026
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Nilai Rata-rata
+                    <span>*</span>
+                </label>
+
+                <input
+                    type="number"
+                    name="nilai"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                    placeholder="Contoh: 88.50"
+                    required>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Jalur Pendaftaran
+                    <span>*</span>
+                </label>
+
+                <select name="jalur" required>
+
+                    <option value="">
+                        Pilih jalur
+                    </option>
+
+                    <option value="Prestasi">
+                        Jalur Prestasi
+                    </option>
+
+                    <option value="Reguler">
+                        Jalur Reguler
+                    </option>
+
+                    <option value="Afirmasi">
+                        Jalur Afirmasi
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group full">
+
+                <label>
+                    Program Pilihan
+                    <span>*</span>
+                </label>
+
+                <select name="program" required>
+
+                    <option value="">
+                        Pilih program
+                    </option>
+
+                    <option value="Science">
+                        Science
+                    </option>
+
+                    <option value="Social">
+                        Social
+                    </option>
+
+                    <option value="Technology">
+                        Technology
+                    </option>
+
+                    <option value="Global Class">
+                        Global Class
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="form-navigation">
+
+        <button type="button"
+                class="btn btn-secondary prev-btn">
+
+            ← Kembali
+
+        </button>
+
+        <button type="button"
+                class="btn btn-primary next-btn">
+
+            Lanjut →
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- STEP 4 -->
+
+<section class="form-step">
+
+    <div class="form-card">
+
+        <div class="form-card-heading">
+
+            <span>04</span>
+
+            <div>
+
+                <h2>
+                    Dokumen Pendaftaran
+                </h2>
+
+                <p>
+                    Upload dokumen yang diperlukan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="upload-grid">
+
+
+            <label class="upload-box">
+
+                <input
+                    type="file"
+                    name="kk"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    required>
+
+                <span class="upload-icon">
+                    📄
+                </span>
+
+                <strong>
+                    Kartu Keluarga
+                </strong>
+
+                <small>
+                    JPG, PNG atau PDF
+                </small>
+
+            </label>
+
+
+            <label class="upload-box">
+
+                <input
+                    type="file"
+                    name="akta"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    required>
+
+                <span class="upload-icon">
+                    🪪
+                </span>
+
+                <strong>
+                    Akta Kelahiran
+                </strong>
+
+                <small>
+                    JPG, PNG atau PDF
+                </small>
+
+            </label>
+
+
+            <label class="upload-box">
+
+                <input
+                    type="file"
+                    name="rapor"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    required>
+
+                <span class="upload-icon">
+                    📚
+                </span>
+
+                <strong>
+                    Rapor
+                </strong>
+
+                <small>
+                    JPG, PNG atau PDF
+                </small>
+
+            </label>
+
+
+        </div>
+
+
+        <div class="confirmation">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    name="agreement"
+                    required>
+
+                <span>
+                    Saya menyatakan bahwa data yang saya
+                    masukkan sudah benar dan dapat
+                    dipertanggungjawabkan.
+                </span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-navigation">
+
+        <button type="button"
+                class="btn btn-secondary prev-btn">
+
+            ← Kembali
+
+        </button>
+
+        <button type="submit"
+                class="btn btn-primary">
+
+            Kirim Pendaftaran ✓
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SUCCESS -->
+
+<section class="form-step success-step">
+
+    <div class="success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <span class="section-label">
+            PENDAFTARAN BERHASIL
+        </span>
+
+        <h2>
+            Welcome to
+            <span>Nexora.</span>
+        </h2>
+
+        <p>
+            Formulir pendaftaran berhasil dikirim.
+            Ini merupakan simulasi frontend sehingga
+            data belum disimpan ke database.
+        </p>
+
+        <div class="registration-number">
+
+            <small>
+                NOMOR PENDAFTARAN
+            </small>
+
+            <strong id="registrationNumber">
+                NX-2027-0001
+            </strong>
+
+        </div>
+
+        <a href="index.html"
+           class="btn btn-primary">
+
+            Kembali ke Home
+
+        </a>
+
+    </div>
+
+</section>
+
+
+</form>
+
+</div>
+
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
