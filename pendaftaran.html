@@ -3,14 +3,19 @@
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Info Pendaftaran | Nexora High School</title>
-
-    <meta name="theme-color" content="#343A40">
+    <meta name="description" content="Informasi lengkap pendaftaran siswa baru Nexora High School 2027/2028.">
+    <meta name="theme-color" content="#102A43">
 
     <script>
     localStorage.getItem("nexora-theme")==="dark"&&document.documentElement.classList.add("dark");
     </script>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -29,10 +34,11 @@
 
 
 <div class="scroll-progress" aria-hidden="true"><div id="scrollProgress"></div></div>
+<a class="skip-link" href="#main-content">Lewati ke konten utama</a>
 
 <!-- NAVBAR -->
 
-<header class="navbar">
+<header class="navbar" id="navbar">
 
     <div class="container nav-container">
 
@@ -50,39 +56,23 @@
 
         <nav class="nav-menu" id="navMenu">
 
-            <a href="index.html">Home</a>
-
-            <a href="index.html#program">
-                Program
-            </a>
-
-            <a href="index.html#prestasi">
-                Prestasi
-            </a>
-
-            <a href="index.html#fasilitas">
-                Fasilitas
-            </a>
-
-            <a href="pendaftaran.html" class="active">
-                Pendaftaran
-            </a>
+            <a href="index.html">Beranda</a>
 
         </nav>
 
 
         <div class="nav-actions">
 
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Aktifkan tema gelap" title="Ganti tema">
                 ◐
             </button>
 
             <a href="form.html"
                class="btn btn-primary nav-button">
-                Daftar Sekarang
+                Coba Simulasi
             </a>
 
-            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle menu">
+            <button type="button" class="menu-toggle" id="menuToggle" aria-controls="navMenu" aria-expanded="false" aria-label="Buka menu navigasi">
                 ☰
             </button>
 
@@ -93,7 +83,7 @@
 </header>
 
 
-<main>
+<main id="main-content">
 
 
 <!-- PAGE HERO -->
@@ -112,13 +102,13 @@
             </span>
 
             <h1>
-                Start your
-                <span>journey.</span>
+                Informasi
+                <span>pendaftaran.</span>
             </h1>
 
             <p>
-                Semua informasi yang kamu butuhkan
-                untuk menjadi bagian dari Nexora High School.
+                Cek jadwal dan persyaratan lebih dulu.
+                Setelah itu, kamu bisa mencoba formulir simulasi.
             </p>
 
         </div>
@@ -159,7 +149,7 @@
 
             <a href="form.html"
                class="btn btn-primary">
-                Daftar Sekarang →
+                Coba Simulasi →
             </a>
 
         </div>
@@ -182,8 +172,8 @@
             </span>
 
             <h2>
-                Mark your
-                <span>calendar.</span>
+                Tandai
+                <span>jadwalmu.</span>
             </h2>
 
         </div>
@@ -306,8 +296,8 @@
             </span>
 
             <h2>
-                Choose your
-                <span>path.</span>
+                Pilih
+                <span>jalurmu.</span>
             </h2>
 
         </div>
@@ -332,7 +322,7 @@
                     prestasi akademik maupun non-akademik.
                 </p>
 
-                <a href="form.html">
+                <a href="form.html?jalur=Prestasi">
                     Pilih jalur →
                 </a>
 
@@ -356,7 +346,7 @@
                     calon siswa baru.
                 </p>
 
-                <a href="form.html">
+                <a href="form.html?jalur=Reguler">
                     Pilih jalur →
                 </a>
 
@@ -380,7 +370,7 @@
                     ketentuan program afirmasi sekolah.
                 </p>
 
-                <a href="form.html">
+                <a href="form.html?jalur=Afirmasi">
                     Pilih jalur →
                 </a>
 
@@ -538,8 +528,8 @@
             </span>
 
             <h2>
-                Simple. Fast.
-                <span>Easy.</span>
+                Mudah. Cepat.
+                <span>Praktis.</span>
             </h2>
 
             <p>
@@ -650,8 +640,8 @@
             </span>
 
             <h2>
-                Frequently
-                <span>asked.</span>
+                Pertanyaan
+                <span>umum.</span>
             </h2>
 
             <p>
@@ -666,7 +656,7 @@
 
             <div class="faq-item reveal">
 
-                <button class="faq-question">
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
 
                     Apakah pendaftaran dilakukan secara online?
 
@@ -674,7 +664,7 @@
 
                 </button>
 
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-1" hidden>
 
                     <p>
                         Ya. Pada simulasi website ini,
@@ -689,7 +679,7 @@
 
             <div class="faq-item reveal">
 
-                <button class="faq-question">
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
 
                     Apakah bisa mendaftar melalui HP?
 
@@ -697,7 +687,7 @@
 
                 </button>
 
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-2" hidden>
 
                     <p>
                         Bisa. Website dirancang responsive
@@ -712,7 +702,7 @@
 
             <div class="faq-item reveal">
 
-                <button class="faq-question">
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
 
                     Apa saja dokumen yang diperlukan?
 
@@ -720,7 +710,7 @@
 
                 </button>
 
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-3" hidden>
 
                     <p>
                         Beberapa dokumen yang diperlukan
@@ -735,7 +725,7 @@
 
             <div class="faq-item reveal">
 
-                <button class="faq-question">
+                <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
 
                     Berapa lama proses pengisian formulir?
 
@@ -743,7 +733,7 @@
 
                 </button>
 
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-4" hidden>
 
                     <p>
                         Dengan dokumen yang sudah disiapkan,
@@ -773,24 +763,21 @@
             <div>
 
                 <span class="section-label">
-                    READY?
+                    SIAP?
                 </span>
 
-                <h2>
-                    Your future
-                    starts here.
-                </h2>
+                <h2>Siap mencoba simulasi PPDB?</h2>
 
                 <p>
-                    Jangan lewatkan kesempatan untuk
-                    menjadi bagian dari Nexora.
+                    Ikuti alur formulir untuk mengenal proses
+                    pendaftaran tanpa mengirim data.
                 </p>
 
             </div>
 
             <a href="form.html"
                class="btn btn-white btn-large">
-                Mulai Pendaftaran →
+                Coba Simulasi Sekarang →
             </a>
 
         </div>
@@ -832,9 +819,9 @@
 
         <div class="footer-column">
 
-            <h4>Explore</h4>
+            <h4>Jelajahi</h4>
 
-            <a href="index.html">Home</a>
+            <a href="index.html">Beranda</a>
             <a href="index.html#program">Program</a>
             <a href="index.html#prestasi">Prestasi</a>
 
@@ -858,7 +845,7 @@
 
         <div class="footer-column">
 
-            <h4>Contact</h4>
+            <h4>Kontak</h4>
 
             <span>📍 Jl. Pendidikan No. 10</span>
             <span>📞 (0752) 123456</span>
@@ -875,15 +862,13 @@
             © <span class="current-year">2026</span> Nexora High School
         </span>
 
-        <span>
-            Made for Education
-        </span>
+        <span>Informasi PPDB 2027/2028</span>
 
     </div>
 
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<button type="button" class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
 
 <script src="js/script.js"></script>
 

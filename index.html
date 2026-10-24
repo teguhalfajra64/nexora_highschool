@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nexora High School | Build Your Future</title>
-    <meta name="description" content="Nexora High School — Sekolah menengah unggulan dengan program Science, Social, Technology, Global Class. Penerimaan Siswa Baru 2027/2028 dibuka. Program pertukaran pelajar ke 12+ sekolah mitra di 6 negara.">
+    <title>Nexora High School | Program dan Info PPDB</title>
+    <meta name="description" content="Kenali pilihan program, fasilitas sekolah, dan informasi penerimaan siswa baru Nexora High School.">
     <meta name="keywords" content="SMA, sekolah menengah, PPDB, pendaftaran siswa baru, student exchange, jurusan IPA, IPS, teknologi, bahasa global">
     <meta name="author" content="Nexora High School">
     <meta name="robots" content="index, follow">
@@ -15,8 +15,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nexora.sch.id/">
-    <meta property="og:title" content="Nexora High School | Build Your Future">
-    <meta property="og:description" content="Sekolah menengah unggulan dengan program Science, Social, Technology, Global Class. Program pertukaran pelajar ke 12+ sekolah mitra di 6 negara.">
+    <meta property="og:title" content="Nexora High School | Program dan Info PPDB">
+    <meta property="og:description" content="Kenali pilihan program, fasilitas sekolah, dan informasi penerimaan siswa baru Nexora High School.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80">
     <meta property="og:site_name" content="Nexora High School">
     <meta property="og:locale" content="id_ID">
@@ -24,8 +24,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://nexora.sch.id/">
-    <meta name="twitter:title" content="Nexora High School | Build Your Future">
-    <meta name="twitter:description" content="Sekolah menengah unggulan dengan program Science, Social, Technology, Global Class. Program pertukaran pelajar ke 12+ sekolah mitra di 6 negara.">
+    <meta name="twitter:title" content="Nexora High School | Program dan Info PPDB">
+    <meta name="twitter:description" content="Kenali pilihan program, fasilitas sekolah, dan informasi penerimaan siswa baru Nexora High School.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=80">
 
     <!-- JSON-LD Structured Data -->
@@ -83,8 +83,7 @@
     }
     </script>
 
-    <meta name="theme-color" content="#343A40" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#252A2E" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#102A43">
 
     <script>
     localStorage.getItem("nexora-theme")==="dark"&&document.documentElement.classList.add("dark");
@@ -106,6 +105,7 @@
 
 
 <div class="scroll-progress" aria-hidden="true"><div id="scrollProgress"></div></div>
+<a class="skip-link" href="#main-content">Lewati ke konten utama</a>
 
 <!-- ================= NAVBAR ================= -->
 
@@ -124,12 +124,13 @@
 
         <nav class="nav-menu" id="navMenu">
 
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html" class="active">Beranda</a>
 
+            <a href="#profil-kepala-sekolah">Profil Kepala Sekolah</a>
             <a href="#program">Program</a>
             <a href="#prestasi">Prestasi</a>
             <a href="#fasilitas">Fasilitas</a>
-            <a href="#profil-kepala-sekolah">Profil Kepala Sekolah</a>
+
 
             <a href="pendaftaran.html">Pendaftaran</a>
 
@@ -137,15 +138,15 @@
 
         <div class="nav-actions">
 
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Aktifkan tema gelap" title="Ganti tema">
                 ◐
             </button>
 
             <a href="form.html" class="btn btn-primary nav-button">
-                Daftar Sekarang
+                Coba Simulasi
             </a>
 
-            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle menu">
+            <button type="button" class="menu-toggle" id="menuToggle" aria-controls="navMenu" aria-expanded="false" aria-label="Buka menu navigasi">
                 ☰
             </button>
 
@@ -158,7 +159,7 @@
 
 <!-- ================= HERO ================= -->
 
-<main>
+<main id="main-content">
 
 <section class="hero">
 
@@ -173,42 +174,25 @@
         <div class="hero-text reveal">
 
             <h1>
-                Build Your
-                <span>Future.</span>
+                Kenali program
+                <span>Nexora.</span>
             </h1>
 
             <p>
-                Temukan potensi terbaikmu, bangun karakter,
-                raih prestasi, dan bersiap menghadapi masa depan
-                bersama Nexora High School.
+                Lihat pilihan belajar, fasilitas, dan informasi
+                penerimaan siswa baru sebelum menentukan langkah.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="form.html" class="btn btn-primary btn-large">
-                    Mulai Pendaftaran
+                <a href="#program" class="btn btn-primary btn-large">
+                    Lihat Program
                     <span>→</span>
                 </a>
 
-                <a href="#tentang" class="btn btn-outline btn-large">
-                    Jelajahi Sekolah
+                <a href="pendaftaran.html" class="btn btn-outline btn-large">
+                    Info PPDB
                 </a>
-
-            </div>
-
-            <div class="hero-trust">
-
-                <div class="avatar-group">
-                    <div class="avatar">A</div>
-                    <div class="avatar">R</div>
-                    <div class="avatar">D</div>
-                    <div class="avatar">+</div>
-                </div>
-
-                <div>
-                    <strong>1.200+ siswa</strong>
-                    <small>belajar dan berkembang bersama kami</small>
-                </div>
 
             </div>
 
@@ -219,37 +203,6 @@
     <div class="hero-scroll">
         <span>Scroll untuk menjelajah</span>
         <span>↓</span>
-    </div>
-
-</section>
-
-
-<!-- ================= STATS ================= -->
-
-<section class="stats-section">
-
-    <div class="container stats-grid">
-
-        <div class="stat-item reveal">
-            <strong>15+</strong>
-            <span>Tahun Pengalaman</span>
-        </div>
-
-        <div class="stat-item reveal">
-            <strong>1.200+</strong>
-            <span>Siswa Aktif</span>
-        </div>
-
-        <div class="stat-item reveal">
-            <strong>50+</strong>
-            <span>Prestasi Nasional</span>
-        </div>
-
-        <div class="stat-item reveal">
-            <strong>95%</strong>
-            <span>Melanjutkan Kuliah</span>
-        </div>
-
     </div>
 
 </section>
@@ -266,17 +219,6 @@
             <img
                 src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=80"
                 alt="Gedung sekolah">
-
-            <div class="experience-card">
-
-                <strong>15+</strong>
-
-                <span>
-                    Tahun membangun
-                    generasi masa depan
-                </span>
-
-            </div>
 
         </div>
 
@@ -322,7 +264,7 @@
 
         <div class="section-heading center reveal">
 
-            <span class="section-label">WHY NEXORA?</span>
+            <span class="section-label">KEUNGGULAN NEXORA</span>
 
             <h2>
                 Tempat untuk
@@ -342,7 +284,7 @@
 
                 <div class="feature-icon">🎓</div>
 
-                <h3>Academic Excellence</h3>
+                <h3>Keunggulan Akademik</h3>
 
                 <p>
                     Sistem pembelajaran yang mendorong siswa
@@ -355,7 +297,7 @@
 
                 <div class="feature-icon">💻</div>
 
-                <h3>Technology</h3>
+                <h3>Teknologi</h3>
 
                 <p>
                     Mengenalkan siswa pada teknologi dan
@@ -368,7 +310,7 @@
 
                 <div class="feature-icon">🏆</div>
 
-                <h3>Achievement</h3>
+                <h3>Prestasi</h3>
 
                 <p>
                     Mendukung siswa mengikuti berbagai
@@ -381,7 +323,7 @@
 
                 <div class="feature-icon">🌎</div>
 
-                <h3>Global Mindset</h3>
+                <h3>Wawasan Global</h3>
 
                 <p>
                     Membentuk siswa yang percaya diri,
@@ -464,8 +406,8 @@
             <span class="section-label">PROGRAM PENDIDIKAN</span>
 
             <h2>
-                Find your
-                <span>path.</span>
+                Pilih
+                <span>programmu.</span>
             </h2>
 
             <p>
@@ -483,15 +425,15 @@
 
                 <div class="program-icon">🔬</div>
 
-                <h3>Science</h3>
+                <h3>Sains</h3>
 
                 <p>
                     Matematika, sains, penelitian,
                     eksperimen, dan problem solving.
                 </p>
 
-                <a href="pendaftaran.html">
-                    Explore program →
+                <a href="#jurusan">
+                    Lihat jurusan →
                 </a>
 
             </article>
@@ -503,15 +445,15 @@
 
                 <div class="program-icon">🌎</div>
 
-                <h3>Social</h3>
+                <h3>Sosial</h3>
 
                 <p>
                     Ekonomi, sosial, komunikasi,
                     kewirausahaan, dan kepemimpinan.
                 </p>
 
-                <a href="pendaftaran.html">
-                    Explore program →
+                <a href="#jurusan">
+                    Lihat jurusan →
                 </a>
 
             </article>
@@ -523,15 +465,15 @@
 
                 <div class="program-icon">💻</div>
 
-                <h3>Technology</h3>
+                <h3>Teknologi</h3>
 
                 <p>
                     Programming, desain digital,
                     AI, dan pengembangan teknologi.
                 </p>
 
-                <a href="pendaftaran.html">
-                    Explore program →
+                <a href="#jurusan">
+                    Lihat jurusan →
                 </a>
 
             </article>
@@ -543,15 +485,15 @@
 
                 <div class="program-icon">🌐</div>
 
-                <h3>Global Class</h3>
+                <h3>Kelas Global</h3>
 
                 <p>
                     Bahasa Inggris, komunikasi global,
                     dan wawasan internasional.
                 </p>
 
-                <a href="pendaftaran.html">
-                    Explore program →
+                <a href="#jurusan">
+                    Lihat jurusan →
                 </a>
 
             </article>
@@ -596,7 +538,7 @@
                     aria-selected="true"
                     aria-controls="jurusan-science">
                 <span class="tab-icon">🔬</span>
-                Science
+                Sains
             </button>
 
             <button class="jurusan-tab"
@@ -606,7 +548,7 @@
                     aria-selected="false"
                     aria-controls="jurusan-social">
                 <span class="tab-icon">🌎</span>
-                Social
+                Sosial
             </button>
 
             <button class="jurusan-tab"
@@ -616,7 +558,7 @@
                     aria-selected="false"
                     aria-controls="jurusan-technology">
                 <span class="tab-icon">💻</span>
-                Technology
+                Teknologi
             </button>
 
             <button class="jurusan-tab"
@@ -626,7 +568,7 @@
                     aria-selected="false"
                     aria-controls="jurusan-global">
                 <span class="tab-icon">🌐</span>
-                Global Class
+                Kelas Global
             </button>
 
         </div>
@@ -1113,7 +1055,7 @@
 
             <div>
 
-                <span class="section-label">STUDENT ACHIEVEMENTS</span>
+                <span class="section-label">PRESTASI SISWA</span>
 
                 <h2>
                     Mereka sudah
@@ -1240,11 +1182,11 @@
 
         <div class="section-heading center reveal">
 
-            <span class="section-label">OUR FACILITIES</span>
+            <span class="section-label">FASILITAS SEKOLAH</span>
 
             <h2>
-                Designed for
-                <span>learning.</span>
+                Dirancang untuk
+                <span>belajar.</span>
             </h2>
 
             <p>
@@ -1267,7 +1209,7 @@
 
                     <span>01</span>
 
-                    <h3>Modern School Building</h3>
+                    <h3>Gedung Sekolah Modern</h3>
 
                 </div>
 
@@ -1284,7 +1226,7 @@
 
                     <span>02</span>
 
-                    <h3>Smart Classroom</h3>
+                    <h3>Ruang Kelas Pintar</h3>
 
                 </div>
 
@@ -1301,7 +1243,7 @@
 
                     <span>03</span>
 
-                    <h3>Science Laboratory</h3>
+                    <h3>Laboratorium Sains</h3>
 
                 </div>
 
@@ -1318,7 +1260,7 @@
 
                     <span>04</span>
 
-                    <h3>Digital Library</h3>
+                    <h3>Perpustakaan Digital</h3>
 
                 </div>
 
@@ -1335,7 +1277,7 @@
 
                     <span>05</span>
 
-                    <h3>Sports Center</h3>
+                    <h3>Pusat Olahraga</h3>
 
                 </div>
 
@@ -1356,11 +1298,11 @@
 
         <div class="section-heading center reveal">
 
-            <span class="section-label">OUR ALUMNI</span>
+            <span class="section-label">ALUMNI</span>
 
             <h2>
-                Where are they
-                <span>now?</span>
+                Perjalanan alumni
+                <span>kami.</span>
             </h2>
 
             <p>
@@ -1643,50 +1585,17 @@
 
         <div class="section-heading center reveal">
 
-            <span class="section-label">STUDENT EXCHANGE</span>
+            <span class="section-label">PERTUKARAN PELAJAR</span>
 
             <h2>
-                Partner schools
-                <span>worldwide.</span>
+                Sekolah mitra
+                <span>lintas negara.</span>
             </h2>
 
             <p>
                 Program pertukaran pelajar & study banding ke sekolah
                 mitra terkemuka di dalam dan luar negeri.
             </p>
-
-        </div>
-
-
-        <div class="partner-stats reveal">
-
-            <div class="partner-stat">
-
-                <strong>12+</strong>
-                <span>Sekolah Mitra</span>
-
-            </div>
-
-            <div class="partner-stat">
-
-                <strong>6</strong>
-                <span>Negara</span>
-
-            </div>
-
-            <div class="partner-stat">
-
-                <strong>50+</strong>
-                <span>Siswa Bertukar / Thn</span>
-
-            </div>
-
-            <div class="partner-stat">
-
-                <strong>100%</strong>
-                <span>Fully Funded Options</span>
-
-            </div>
 
         </div>
 
@@ -2013,41 +1922,6 @@
 
 <!-- ================= TESTIMONIAL ================= -->
 
-<section class="section testimonial-section">
-
-    <div class="container">
-
-        <div class="testimonial reveal">
-
-            <div class="quote-mark">"</div>
-
-            <blockquote>
-                Nexora membuat saya berani mencoba hal-hal baru.
-                Saya tidak hanya belajar untuk mendapatkan nilai,
-                tetapi juga belajar bagaimana bekerja sama,
-                memimpin, dan percaya pada kemampuan diri sendiri.
-            </blockquote>
-
-            <div class="testimonial-author">
-
-                <div class="testimonial-avatar">
-                    A
-                </div>
-
-                <div>
-                    <strong>Allya Rahma</strong>
-                    <span>Alumni Nexora • Class of 2025</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
 <!-- ================= CTA ================= -->
 
 <section class="cta-section">
@@ -2058,24 +1932,21 @@
 
             <div>
 
-                <span class="section-label">
-                    YOUR NEXT CHAPTER
-                </span>
+                <span class="section-label">PENERIMAAN SISWA BARU</span>
 
                 <h2>
-                    Ready to build
-                    your future?
+                    Ingin tahu cara mendaftar?
                 </h2>
 
                 <p>
-                    Pendaftaran siswa baru tahun ajaran
-                    2027/2028 telah dibuka.
+                    Baca jadwal, persyaratan, dan langkah pendaftaran
+                    sebelum mencoba formulir simulasi.
                 </p>
 
             </div>
 
-            <a href="form.html" class="btn btn-white btn-large">
-                Daftar Sekarang →
+            <a href="pendaftaran.html" class="btn btn-white btn-large">
+                Lihat Info PPDB →
             </a>
 
         </div>
@@ -2116,7 +1987,7 @@
 
         <div class="footer-column">
 
-            <h4>Explore</h4>
+            <h4>Jelajahi</h4>
 
             <a href="#tentang">Tentang Kami</a>
             <a href="#program">Program</a>
@@ -2139,7 +2010,7 @@
 
         <div class="footer-column">
 
-            <h4>Contact</h4>
+            <h4>Kontak</h4>
 
             <span>📍 Jl. Pendidikan No. 10</span>
             <span>📞 (0752) 123456</span>
@@ -2149,6 +2020,11 @@
 
     </div>
 
+    <div class="container site-note">
+        Konten situs ini masih berupa contoh. Verifikasi program, prestasi,
+        kemitraan, alamat, dan kontak sebelum dipublikasikan.
+    </div>
+
 
     <div class="container footer-bottom">
 
@@ -2156,15 +2032,13 @@
             © <span class="current-year">2026</span> Nexora High School
         </span>
 
-        <span>
-            Made for Education
-        </span>
+        <span>Informasi untuk calon siswa dan orang tua</span>
 
     </div>
 
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<button type="button" class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
 
 <script src="js/script.js"></script>
 

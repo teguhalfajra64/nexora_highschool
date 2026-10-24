@@ -15,6 +15,16 @@ const navMenu =
 
 if (menuToggle && navMenu) {
 
+    const setMenuOpen = open => {
+        navMenu.classList.toggle("open", open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        menuToggle.setAttribute(
+            "aria-label",
+            open ? "Tutup menu navigasi" : "Buka menu navigasi"
+        );
+        menuToggle.textContent = open ? "×" : "☰";
+    };
+
     menuToggle.setAttribute(
         "aria-expanded",
         "false"
@@ -22,13 +32,7 @@ if (menuToggle && navMenu) {
 
     menuToggle.addEventListener("click", () => {
 
-        const open =
-            navMenu.classList.toggle("open");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(open)
-        );
+        setMenuOpen(!navMenu.classList.contains("open"));
 
     });
 
@@ -40,12 +44,7 @@ if (menuToggle && navMenu) {
 
         link.addEventListener("click", () => {
 
-            navMenu.classList.remove("open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            setMenuOpen(false);
 
         });
 
@@ -59,12 +58,7 @@ if (menuToggle && navMenu) {
             !menuToggle.contains(e.target) &&
             navMenu.classList.contains("open")
         ) {
-            navMenu.classList.remove("open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            setMenuOpen(false);
 
         }
 
@@ -77,12 +71,7 @@ if (menuToggle && navMenu) {
             e.key === "Escape" &&
             navMenu.classList.contains("open")
         ) {
-            navMenu.classList.remove("open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            setMenuOpen(false);
 
             menuToggle.focus();
 
@@ -103,10 +92,16 @@ const themeToggle =
 
 if (themeToggle) {
 
-    themeToggle.setAttribute(
-        "aria-label",
-        "Toggle dark mode"
-    );
+    const updateThemeControl = isDark => {
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark ? "Aktifkan tema terang" : "Aktifkan tema gelap"
+        );
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.textContent = isDark ? "☀" : "☾";
+    };
+
+    updateThemeControl(html.classList.contains("dark"));
 
     themeToggle.addEventListener("click", () => {
 
@@ -118,20 +113,18 @@ if (themeToggle) {
             isDark ? "dark" : "light"
         );
 
-        const meta =
-            document.querySelector(
-                'meta[name="theme-color"]'
-            );
+        updateThemeControl(isDark);
 
-        if (meta) {
+        document.querySelectorAll(
+                'meta[name="theme-color"]'
+            ).forEach(meta => {
             meta.setAttribute(
                 "content",
                 isDark
-                    ? "#252A2E"
-                    : "#343A40"
+                    ? "#0B1720"
+                    : "#102A43"
             );
-
-        }
+        });
 
     });
 
@@ -400,6 +393,8 @@ faqQuestions.forEach(question => {
             faqItem.querySelector(
                 ".faq-answer"
             );
+        const wasOpen =
+            faqItem.classList.contains("open");
 
 
         document.querySelectorAll(".faq-item")
@@ -428,14 +423,14 @@ faqQuestions.forEach(question => {
                 if (otherAnswer) {
                     otherAnswer.style.maxHeight =
                         null;
+                    otherAnswer.hidden = true;
 
                 }
 
             });
 
 
-        const willOpen =
-            !faqItem.classList.contains("open");
+        const willOpen = !wasOpen;
 
         faqItem.classList.toggle("open");
 
@@ -446,6 +441,7 @@ faqQuestions.forEach(question => {
 
         if (willOpen && answer) {
 
+            answer.hidden = false;
             answer.style.maxHeight =
                 answer.scrollHeight + "px";
 
@@ -453,6 +449,7 @@ faqQuestions.forEach(question => {
 
             answer.style.maxHeight =
                 null;
+            answer.hidden = true;
 
         }
 
@@ -494,15 +491,36 @@ if (registrationForm) {
 
     let currentStep = 0;
 
+    const jalurSelect =
+        registrationForm.querySelector('select[name="jalur"]');
+    const selectedPath =
+        new URLSearchParams(window.location.search).get("jalur");
 
-    function showStep(step) {
+    if (
+        jalurSelect &&
+        selectedPath &&
+        Array.from(jalurSelect.options).some(
+            option => option.value === selectedPath
+        )
+    ) {
+        jalurSelect.value = selectedPath;
+    }
+
+
+    function showStep(step, shouldFocus = false) {
 
         formSteps.forEach(
             (formStep, index) => {
 
+                const isCurrent = index === step;
+
                 formStep.classList.toggle(
                     "active",
-                    index === step
+                    isCurrent
+                );
+                formStep.setAttribute(
+                    "aria-hidden",
+                    String(!isCurrent)
                 );
 
             }
@@ -521,6 +539,11 @@ if (registrationForm) {
                     "done",
                     index < step
                 );
+                if (index === step) {
+                    progressStep.setAttribute("aria-current", "step");
+                } else {
+                    progressStep.removeAttribute("aria-current");
+                }
 
             }
         );
@@ -537,13 +560,20 @@ if (registrationForm) {
         }
 
 
-        window.scrollTo({
+        if (shouldFocus) {
+            const heading =
+                formSteps[step]?.querySelector("h2");
 
-            top: 0,
-
-            behavior: "smooth"
-
-        });
+            if (heading) {
+                heading.focus({ preventScroll: true });
+                heading.scrollIntoView({
+                    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                        ? "auto"
+                        : "smooth",
+                    block: "start"
+                });
+            }
+        }
 
     }
 
@@ -559,33 +589,42 @@ if (registrationForm) {
         }
 
 
-        const requiredInputs =
+        const formControls =
             currentFormStep.querySelectorAll(
-                "input[required], select[required], textarea[required]"
+                "input, select, textarea"
             );
 
 
-        let valid = true;
+        const invalidInput =
+            Array.from(formControls).find(input => !input.checkValidity());
 
+        if (invalidInput) {
+            invalidInput.reportValidity();
+            return false;
+        }
 
-        requiredInputs.forEach(input => {
-
-            if (!input.checkValidity()) {
-
-                input.reportValidity();
-
-                valid = false;
-
-                return;
-
-            }
-
-        });
-
-
-        return valid;
+        return true;
 
     }
+
+    registrationForm.addEventListener("keydown", event => {
+        if (
+            event.key !== "Enter" ||
+            event.isComposing ||
+            !(event.target instanceof Element) ||
+            event.target.matches("textarea, select, button, input[type='checkbox'], input[type='file']")
+        ) {
+            return;
+        }
+
+        const nextButton =
+            formSteps[currentStep]?.querySelector(".next-btn");
+
+        if (nextButton) {
+            event.preventDefault();
+            nextButton.click();
+        }
+    });
 
 
     document.querySelectorAll(".next-btn")
@@ -607,7 +646,7 @@ if (registrationForm) {
 
                     currentStep++;
 
-                    showStep(currentStep);
+                    showStep(currentStep, true);
 
                 }
 
@@ -625,7 +664,7 @@ if (registrationForm) {
 
                     currentStep--;
 
-                    showStep(currentStep);
+                    showStep(currentStep, true);
 
                 }
 
@@ -649,32 +688,11 @@ if (registrationForm) {
             }
 
 
-            const registrationNumber =
-                document.getElementById(
-                    "registrationNumber"
-                );
-
-
-            const randomNumber =
-                Math.floor(
-                    1000 +
-                    Math.random() * 9000
-                );
-
-
-            if (registrationNumber) {
-
-                registrationNumber.textContent =
-                    "NX-2027-" + randomNumber;
-
-            }
-
-
             currentStep =
                 formSteps.length - 1;
 
 
-            showStep(currentStep);
+            showStep(currentStep, true);
 
 
             registrationForm.reset();
